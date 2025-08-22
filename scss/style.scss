@@ -1,0 +1,793 @@
+@import url(./../style/fonts.css);
+$bc-white: #ffffff;
+$bc-green: #75bf7a;
+$bc-black: #000000;
+$bc-grey: #E5E5E5;
+
+
+$font-white: #ffffff;
+$font-black: #000000;
+$font-grey: #9e9da2;
+$font-green: #75bf7a;
+
+$Gilroy-family: "Gilroy", sans-serif;
+$border-test: 2px solid red;
+@mixin fonts($family, $weight, $size, $color, $line) {
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+    line-height: $line;
+}
+@mixin container($width: 1310px, $margin-center: 0 auto, $center-padding: 0 15px) {
+    max-width: $width;
+    margin: $margin-center;
+    padding: $center-padding;
+}
+
+/***********HEADER*************/
+header{
+    padding-top: 85px;
+    padding-bottom: 38px;
+
+    @media (max-width: 900px) {
+        padding-top: 45px;
+        padding-bottom: 30px;
+    }
+}
+.container{
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 900px) {
+        > img {
+            width: 93px;
+            height: 27px;
+        }
+    }
+}
+.wrap-navigation{
+    display: flex;
+    gap: 47px;
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+nav{
+    display: flex;
+    align-items: center;
+}
+nav ul {
+    display: flex;
+    gap: 46px;
+}
+nav ul a{
+    @include fonts($Gilroy-family, 500, 17px, $font-black, 17px);
+    position: relative;
+}
+nav ul a::after{
+    content: " ";
+    height: 2px;
+    width: 0;
+    transition: width 0.5s ease;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    background-color: black;
+    display: block;
+}
+nav ul a:hover::after{
+    width: 100%;
+}
+.wrap-navigation button {
+    @include fonts($Gilroy-family, 600, 22px, $font-white, 50px);
+    background-color: $bc-green;
+    border-radius: 6px;
+    width: 182px;
+    height: 50px;
+}
+.burger-menu{
+    display: none;
+
+    > div {
+        height: 3px;
+        width: 23px;
+        background-color: $bc-black;
+    }
+    @media (max-width: 900px) {
+        width: 29px;
+        height: 29px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+}
+/***********HEADER*************/
+/**********Download***********/
+main{
+    background-color: $bc-grey;
+    padding-bottom: 200px;
+}
+.download-container{
+    @include container;
+    display: flex;
+    gap: 40px;
+    padding-bottom: 85px;
+    @media (max-width: 900px) {
+        flex-direction: column-reverse;
+        gap: 31px;
+        padding-bottom: 66px;
+    }
+}
+.download-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 50%;
+
+    > h1 {
+        @include fonts($Gilroy-family, 800, 60px, $font-black, 66px);
+    }
+
+    > p {
+        margin: 27px 0 62px 0;
+        max-width: 550px;
+        @include fonts($Gilroy-family, 500, 24px, $font-grey, 28px);
+    }
+
+    > .download-block {
+        display: flex;
+        gap: 30px;
+
+        > a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 17px;
+            border-radius: 5px;
+            width: 260px;
+            height: 66px;
+            background-color: $bc-black;
+            @include fonts($Gilroy-family, 800, 24px, $font-white, 66px);
+        }
+    }
+
+    @media (max-width: 900px) {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        
+        > h1{
+            @include fonts($Gilroy-family, 800, 34px, $font-black, 38px);
+        }
+
+        > p {
+            max-width: 100%;
+            margin-bottom: 25px;
+            @include fonts($Gilroy-family, 500, 18px, $font-grey, 22px)
+        }
+
+        > .download-block {
+            gap: 17px;
+        }
+
+        > .download-block > a {
+            width: 151px;
+            height: 38px;
+            gap: 10px;
+            border-radius: 3px;
+            @include fonts($Gilroy-family, 800, 14px, $font-white, 38px);
+        }
+
+        > .download-block > a > img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        > .download-block > a {
+            width: 130px;
+            height: 28px;
+            gap: 10px;
+            border-radius: 3px;
+            @include fonts($Gilroy-family, 800, 12px, $font-white, 28px);
+        }
+    }
+}
+
+.download-map{
+    >img {
+        width: 100%;
+        max-width: 553px;
+    }
+    @media (max-width: 900px) {
+        display: flex;
+        justify-content: center;
+    }
+}
+/*********Download**********/
+/*********ApplyToDrive*******/
+.applyToDrive {
+    @include container;
+    background-color: $bc-green;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 5px;
+
+    > p {
+        @include fonts($Gilroy-family, 600, 24px, $font-white, 28px);
+        max-width: 246px;
+    }
+    > div {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+    }
+    input {
+        border-radius: 4px;
+        width: 499px;
+        height: 67px;
+        padding-left: 35px;
+        @include fonts($Gilroy-family, 600, 20px, $font-black, 67px)
+    }
+    input::placeholder {
+        @include fonts($Gilroy-family, 600, 20px, #dadada, 67px)
+    }
+    button{
+        border-radius: 4px;
+        width: 260px;
+        height: 67px;
+        background-color: $bc-black;
+        @include fonts($Gilroy-family, 800, 22px, $font-white, 67px);
+    }
+    @media (max-width: 1100px) {
+        input {
+            width: 370px;
+            height: 60px;
+        }
+        button {
+            width: 230px;
+            height: 60px;
+            @include fonts($Gilroy-family, 800, 22px, $font-white, 60px);
+        }
+    }
+    @media (max-width: 900px) {
+        flex-direction: column;
+        gap: 25px;
+        padding-top: 22px;
+        padding-bottom: 30px;
+        > p {
+            max-width: 100%;
+        }
+        > div {
+            flex-direction: column;
+            gap: 20px;
+        }
+        input {
+            width: 280px;
+            height: 48px;
+            @include fonts($Gilroy-family, 600, 16px, $font-black, 48px);
+        }
+        input::placeholder {
+            @include fonts($Gilroy-family, 600, 16px, #dadada, 48px);
+        }
+        button {
+            width: 280px;
+            height: 48px;
+            @include fonts($Gilroy-family, 800, 22px, $font-white, 48px);
+        }
+    }
+    @media (max-width: 400px) {
+        input {
+            width: 250px;
+            height: 43px;
+            @include fonts($Gilroy-family, 600, 16px, $font-black, 43px);
+        }
+        button {
+            width: 250px;
+            height: 43px;
+            @include fonts($Gilroy-family, 800, 22px, $font-white, 43px);
+        }
+    }
+}
+/*********ApplyToDrive*******/
+/*********tereWorks**********/
+.tereWorks {
+    @include container;
+    padding-top: 128px;
+    padding-bottom: 52px;
+
+    h2 {
+        @include fonts($Gilroy-family, 800, 46px, $font-black, 50px);
+        text-align: center; 
+
+        > span {
+            color: $font-green;
+        }
+    }
+    
+    > p {
+        @include fonts($Gilroy-family, 500, 23px, $font-grey, 26px);
+        max-width: 620px;
+        text-align: center;
+        margin: 25px auto 63px auto;
+    }
+    
+    .worksContent {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr auto auto;
+        gap: 40px;
+        grid-template-areas: 
+                            "oneWorks slider twoWorks"
+                            "threeWorks slider fourWorks"
+                            "countWorks countWorks countWorks"
+                            "benefits benefits benefits";
+
+        .works-slider-block{
+            background-image: url(./../img/works-circle.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 400px;
+            height: 560px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-area: slider;
+
+            .works-slider{
+                width: 279px;
+                height: 560px;
+                overflow: hidden;
+                display: flex;
+                gap: 2px
+
+                img {
+                    width: 279px;
+                    height: 560px;
+                }
+            }
+        }
+            
+        .oneWorks {
+            grid-area: oneWorks;
+            text-align: end;
+            justify-items: end;
+            align-content: start;
+            padding-top: 36px;
+        }
+
+        .twoWorks {
+            grid-area: twoWorks;
+            text-align: start;
+            justify-items: start;
+            align-content: start;
+            padding-top: 36px;
+        }
+
+        .threeWorks{
+            grid-area: threeWorks;
+            text-align: end;
+            justify-items: end;
+            align-content: start;
+        }
+
+        .fourWorks{
+            grid-area: fourWorks;
+            text-align: start;
+            justify-items: start;
+            align-content: start;
+        }
+
+        > .worksContent-info h6{
+            @include fonts($Gilroy-family, 800, 22px, $font-black, 50px);
+        }
+            
+        > .worksContent-info p {
+            max-width: 290px;
+            @include fonts($Gilroy-family, 500, 20px, $font-grey, 26px); 
+        }
+        .count-slider{
+            width: 65px;
+            margin: -10px auto 0 auto;
+            display: flex;
+            gap: 5px;
+            grid-area: countWorks;
+
+            > a {
+                width: 14px;
+                height: 14px;
+                border-radius: 100%;
+                background-color: $bc-green;
+                opacity: 50%;
+            }
+
+            > a.active{
+                opacity: 100%;
+            }
+        }
+        > h2 {
+            grid-area: benefits;
+            margin-top: 35px;
+        }
+    }
+
+    @media (max-width: 1150px) {
+        .worksContent{
+            column-gap: 0;
+
+            .works-slider-block{
+                width: 350px;
+            }
+        }
+    }
+
+    @media(max-width: 900px) {
+        padding-top: 44px;
+        padding-bottom: 72px;
+
+        h2 {
+            font-size: 24px;
+        }
+
+        p {
+            @include fonts($Gilroy-family, 500, 22px, $font-grey, 24px);
+            margin-top: 15px;
+        }
+
+        .worksContent{
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(7, auto);
+            justify-items: center;
+            gap: 55px;
+            grid-template-areas: 
+                            "slider"
+                            "countWorks"
+                            "benefits"
+                            "oneWorks"
+                            "twoWorks"
+                            "threeWorks"
+                            "fourWorks";
+            
+            .works-slider-block{
+                width: 320px;
+                height: 448px;
+
+                .works-slider{
+                    width: 222px;
+                    height: 448px;
+
+                    img {
+                        width: 223px;
+                        height: 448px;
+                    }
+                }
+            }
+            .worksContent-info{
+                text-align: center;
+                justify-items: center;
+                padding-top: 0;
+
+                p{
+                    max-width: 80%;
+                }
+            }
+            > h2 {
+                margin-top: 15px;
+            }
+
+            .oneWorks > p {
+                display: inline;
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        .worksContent {
+            .works-slider-block{
+                width: 260px;
+                height: 448px;
+
+                .works-slider{
+                    width: 202px;
+                    height: 408px;
+
+                    img {
+                        width: 203px;
+                        height: 408px;
+                    }
+                }
+            }       
+        } 
+    }
+}
+/*********tereWorks**********/
+/*********Benefits***********/
+.benefits-container{
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 56px;
+    padding: 0 65px;
+
+    h2 {
+        @include fonts($Gilroy-family, 800, 46px, $font-black, 50px);
+        text-align: center; 
+        display: none;
+
+        > span {
+            color: $font-green;
+        }
+    }
+
+    > .benefits-item {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 100%;
+        max-width: 1060px;
+        padding: 25px 46px;
+        background-color: $bc-white;
+        border-radius: 10px;
+        column-gap: 80px;
+        row-gap: 10px;
+        grid-template-areas: 
+                    "countBenefits imgBenefits"
+                    "textBenefits imgBenefits";
+
+        > div {
+            grid-area: countBenefits;
+            display: flex;
+            gap: 39px;
+            
+
+            > span {
+                @include fonts($Gilroy-family, 500, 88px, $font-green, 119px);
+                align-content: end;
+                transform:translateY(22px);
+            }
+            > h6 {
+                @include fonts($Gilroy-family, 600, 33px, $font-black, 32px);
+                align-content: end;
+                max-width: 218px;
+            }
+        }
+
+        > p {
+            grid-area: textBenefits;
+            @include fonts($Gilroy-family, 500, 22px, $font-grey, 23px);
+            max-width: 385px;
+        }
+
+        > img {
+            grid-area: imgBenefits;
+            justify-self: center;
+        }
+    }
+    > .benefits-flexible{
+        justify-self: start;
+    }
+
+    > .benefits-earnings {
+        justify-self: end;
+        margin-left: 0;
+        grid-template-areas: 
+                    "imgBenefits countBenefits"
+                    "imgBenefits textBenefits";
+        
+        >p {
+            max-width: 385px;
+        }
+    }
+
+    > .benefits-customer {
+        justify-self: start;
+
+        >p {
+            max-width: 520px;
+        }
+    }
+    @media (max-width: 1000px) {
+        > .benefits-item {
+            column-gap: 20px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        row-gap: 19px;
+        
+        > h2 {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        >.benefits-item {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            justify-items: center;
+            padding-bottom: 57px;
+            grid-template-areas: 
+                    "countBenefits" 
+                    "imgBenefits"
+                    "textBenefits";
+            
+            > div {
+                gap: 15px;
+
+                > span {
+                    @include fonts($Gilroy-family, 500, 64px, $font-green, 87px);
+                }
+                > h6 {
+                    @include fonts($Gilroy-family, 600, 24px, $font-black, 24px);
+                }
+            }
+
+            > img {
+                margin-top: 35px;
+                margin-bottom: 35px;
+            }
+
+            >p {
+                text-align: center; 
+            }
+        }
+    }
+    @media (max-width: 600px) {
+        padding: 0 20px;
+        > .benefits-item{
+            padding-left: 10px;
+            padding-right: 10px;
+
+            >div{
+                > span{
+                    font-size: 44px;
+                }
+
+                > h6 {
+                    font-size: 20px;
+                }
+            }
+
+            >p {
+                max-width: 100%;
+                @include fonts($Gilroy-family, 500, 16px, $font-grey, 17px);
+            }
+            > img {
+                width: 200px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        } 
+        > .benefits-flexible {
+            >img {
+                max-width: 215px;
+            }
+        }
+        > .benefits-earnings {
+            >img {
+                max-width: 238px;
+            }
+        }
+        > .benefits-customer {
+            >img {
+                max-width: 237px;
+            }
+        }
+    }
+}
+/*********Benefits***********/
+/*********Footer*************/
+footer {
+    background-color: $bc-white;
+}
+.footerContent{
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+
+    .footerContent-container{
+        @include container;
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        padding: 71px 15px 38px 15px;
+        column-gap: 50px;
+
+        > img {
+            align-self: center;
+            justify-self: center;
+        }
+
+        >.footerFriend {
+            justify-items: center;
+            text-align: center;
+            > h6{
+                margin-bottom: 21px;
+                @include fonts($Gilroy-family, 500, 22px, #272042, 22px);
+            }
+            li {
+                @include fonts($Gilroy-family, 400, 18px, #8b8ba5, 18px);
+                margin-top: 15px;
+            }
+        }
+
+        > .footer-download {
+            align-self: center;
+            justify-self: end;
+            display: flex;
+            gap: 41px;
+
+            > a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                border-radius: 3px;
+                width: 178px;
+                height: 45px;
+                background-color: $bc-black;
+                @include fonts($Gilroy-family, 800, 16px, $font-white, 45px);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            padding-top: 55px;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: 
+                                "footerImg"
+                                "footerDownload"
+                                "footerFriend";
+
+            >img {
+                margin-bottom: 39px;
+                grid-area: footerImg;
+            }
+            >.footerFriend{
+                grid-area: footerFriend;
+            }
+            >.footer-download {
+                grid-area: footerDownload;
+                justify-self: center;
+                gap: 25px;
+                margin-bottom: 50px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            >.footer-download {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+        }
+        
+    }
+}
+.fotter-bottom{
+    @include container;
+    padding: 38px 15px 243px 15px;
+
+    > p {
+        @include fonts($Gilroy-family, 400, 16px, $font-green, 16px);
+        text-align: center;
+    }
+
+    @media (max-width: 900px) {
+        .fotter-bottom p{
+            color: $font-grey;
+            line-height: 20px;
+        }
+    }
+}
+    
+/*********Footer*************/
