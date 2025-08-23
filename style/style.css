@@ -1,4 +1,8 @@
 @import url(./../style/fonts.css);
+.hidden {
+  display: none;
+}
+
 /***********HEADER*************/
 header {
   padding-top: 85px;
@@ -8,6 +12,7 @@ header {
   header {
     padding-top: 45px;
     padding-bottom: 30px;
+    position: relative;
   }
 }
 
@@ -20,7 +25,7 @@ header {
   align-items: center;
 }
 @media (max-width: 900px) {
-  .container > img {
+  .container > a > img {
     width: 93px;
     height: 27px;
   }
@@ -32,7 +37,15 @@ header {
 }
 @media (max-width: 900px) {
   .wrap-navigation {
-    display: none;
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    right: 0;
+    height: 0;
+    background-color: #E5E5E5;
+    transition: height 1s ease-in-out;
+    overflow: hidden;
   }
 }
 
@@ -40,10 +53,20 @@ nav {
   display: flex;
   align-items: center;
 }
+@media (max-width: 900px) {
+  nav {
+    display: block;
+  }
+}
 
 nav ul {
   display: flex;
   gap: 46px;
+}
+@media (max-width: 900px) {
+  nav ul {
+    display: block;
+  }
 }
 
 nav ul a {
@@ -54,12 +77,24 @@ nav ul a {
   line-height: 17px;
   position: relative;
 }
+@media (max-width: 900px) {
+  nav ul a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-family: "Gilroy", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #000000;
+    line-height: 60px;
+  }
+}
 
 nav ul a::after {
   content: " ";
   height: 2px;
   width: 0;
-  transition: width 0.5s ease;
+  transition: width 1s ease;
   position: absolute;
   left: 0;
   bottom: -2px;
@@ -70,8 +105,20 @@ nav ul a::after {
 nav ul a:hover::after {
   width: 100%;
 }
+@media (max-width: 900px) {
+  nav ul a:hover::after {
+    width: 0;
+  }
+}
 
-.wrap-navigation button {
+@media (max-width: 900px) {
+  nav ul li:hover {
+    background-color: #c9c9ce;
+    border-top: 1px solid #bcaef3;
+    border-bottom: 1px solid #bcaef3;
+  }
+}
+.wrap-navigation > a {
   font-family: "Gilroy", sans-serif;
   font-weight: 600;
   font-size: 22px;
@@ -81,15 +128,23 @@ nav ul a:hover::after {
   border-radius: 6px;
   width: 182px;
   height: 50px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .wrap-navigation > a {
+    width: 100%;
+    font-family: "Gilroy", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #ffffff;
+    line-height: 40px;
+  }
 }
 
 .burger-menu {
   display: none;
-}
-.burger-menu > div {
-  height: 3px;
-  width: 23px;
-  background-color: #000000;
 }
 @media (max-width: 900px) {
   .burger-menu {
@@ -100,7 +155,26 @@ nav ul a:hover::after {
     justify-content: center;
     align-items: center;
     gap: 5px;
+    transition: transform ease 0.5s;
   }
+}
+
+.burger-menu div {
+  height: 3px;
+  width: 23px;
+  background-color: #000000;
+}
+
+.rotate {
+  transform: rotateY(360deg) scale(1.5);
+}
+
+.visible {
+  height: 230px;
+}
+
+.button {
+  box-shadow: inset 2px 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 /***********HEADER*************/
@@ -138,6 +212,7 @@ main {
   font-size: 60px;
   color: #000000;
   line-height: 66px;
+  margin-top: 30px;
 }
 .download-content > p {
   margin: 27px 0 62px 0;
@@ -153,6 +228,7 @@ main {
   gap: 30px;
 }
 .download-content > .download-block > a {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,6 +242,9 @@ main {
   font-size: 24px;
   color: #ffffff;
   line-height: 66px;
+}
+.download-content .download-block-shadow {
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.7), -2px -2px 10px rgba(0, 0, 0, 0.7);
 }
 @media (max-width: 900px) {
   .download-content {
@@ -271,6 +350,8 @@ main {
   font-size: 20px;
   color: #000000;
   line-height: 67px;
+  border: none;
+  outline: none;
 }
 .applyToDrive input::-moz-placeholder {
   font-family: "Gilroy", sans-serif;
@@ -290,12 +371,13 @@ main {
   border-radius: 4px;
   width: 260px;
   height: 67px;
-  background-color: #000000;
+  background-color: #4d4848;
   font-family: "Gilroy", sans-serif;
   font-weight: 800;
   font-size: 22px;
   color: #ffffff;
   line-height: 67px;
+  cursor: not-allowed;
 }
 @media (max-width: 1100px) {
   .applyToDrive input {
@@ -434,9 +516,11 @@ main {
   height: 560px;
   overflow: hidden;
   display: flex;
-  gap: 2px img;
-  gap-width: 279px;
-  gap-height: 560px;
+  gap: 2px;
+}
+.tereWorks .worksContent .works-slider-block .works-slider img {
+  width: 279px;
+  height: 560px;
 }
 .tereWorks .worksContent .oneWorks {
   grid-area: oneWorks;
