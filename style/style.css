@@ -185,7 +185,7 @@ nav ul a:hover::after {
 /**********Download***********/
 main {
   background-color: #E5E5E5;
-  padding-bottom: 200px;
+  padding-bottom: 50px;
 }
 
 .download-container {
@@ -800,8 +800,12 @@ main {
     padding-left: 10px;
     padding-right: 10px;
   }
+  .benefits-container > .benefits-item > div {
+    align-items: center;
+  }
   .benefits-container > .benefits-item > div > span {
     font-size: 44px;
+    transform: none;
   }
   .benefits-container > .benefits-item > div > h6 {
     font-size: 20px;
