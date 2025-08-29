@@ -75,7 +75,7 @@ new Swiper('.swiper', {
         delay: 3000,
         stopOnLastSlide: false, 
     },
-    speed: 1000,
+    speed: 500,
 })
 
 /*
