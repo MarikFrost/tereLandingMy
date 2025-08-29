@@ -45,14 +45,13 @@ header{
     align-items: center;
 
     @media (max-width: 900px) {
+        padding: 0 25px;
         > a > img {
             width: 93px;
             height: 27px;
         }
     }
 }
-
-
 .wrap-navigation{
     display: flex;
     gap: 47px;
@@ -77,7 +76,6 @@ nav{
         display: block;  
     }
 }
-
 nav ul {
     display: flex;
     gap: 46px;
@@ -134,23 +132,23 @@ nav ul a:hover::after{
 
     @media (max-width: 900px) {
         width: 100%;
-        @include fonts($Gilroy-family, 500, 25px, $bc-white, 40px);
+        @include fonts($Gilroy-family, 500, 25px, $bc-white, 50px);
     }
 
 }       
-
 .burger-menu{
     display: none;
 
     @media (max-width: 900px) {
-        width: 29px;
-        height: 29px;
+        width: 40px;
+        height: 40px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 5px;
         transition: transform ease 0.5s;
+        cursor: pointer;
     }
 }
 .burger-menu div {
@@ -158,7 +156,6 @@ nav ul a:hover::after{
     width: 23px;
     background-color: $bc-black;
 }
-
 .rotate {
     transform: rotateY(360deg) scale(1.5);
 }
@@ -244,10 +241,10 @@ main{
 
         > .download-block > a {
             width: 151px;
-            height: 38px;
+            height: 48px;
             gap: 10px;
             border-radius: 3px;
-            @include fonts($Gilroy-family, 800, 14px, $font-white, 38px);
+            @include fonts($Gilroy-family, 800, 14px, $font-white, 48px);
         }
 
         > .download-block > a > img {
@@ -266,7 +263,6 @@ main{
         }
     }
 }
-
 .download-map{
     >img {
         width: 100%;
@@ -315,7 +311,7 @@ main{
         border-radius: 4px;
         width: 260px;
         height: 67px;
-        background-color: #4d4848;
+        background-color: rgb(169 169 169);
         @include fonts($Gilroy-family, 800, 22px, $font-white, 67px);
         cursor: not-allowed;
     }
@@ -420,12 +416,15 @@ main{
                 width: 279px;
                 height: 560px;
                 overflow: hidden;
-                display: flex;
-                gap: 2px;
-
-                img {
-                    width: 279px;
-                    height: 560px;
+                
+                > div {
+                    display: flex;
+                    gap: 2px;
+                    
+                    img {
+                        width: 279px;
+                        height: 560px;
+                    }
                 }
             }
         }
@@ -538,10 +537,13 @@ main{
                     width: 222px;
                     height: 448px;
 
-                    img {
-                        width: 223px;
-                        height: 448px;
+                    > div {
+                        > img {
+                            width: 223px;
+                            height: 448px;
+                        }
                     }
+                    
                 }
             }
             .worksContent-info{
@@ -572,10 +574,11 @@ main{
                 .works-slider{
                     width: 202px;
                     height: 408px;
-
-                    img {
-                        width: 203px;
-                        height: 408px;
+                    > div {
+                        > img {
+                            width: 203px;
+                            height: 408px;
+                        }
                     }
                 }
             }       
