@@ -6,7 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/style.css">
-    <script src="./script/main.js" defer></script>
+    <link rel="icon" href="./img/logo.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
     <header>
@@ -83,14 +84,15 @@
             </p>
             <div class="worksContent">
                 <div class="works-slider-block">
-                    <div class="works-slider">
-                        <div>
-                            <img class="1" src="./img/slider-works.svg" alt="">
-                            <img class="2" src="./img/slider-works.svg" alt="">
-                            <img class="3" src="./img/slider-works.svg" alt="">
-                            <img class="4" src="./img/slider-works.svg" alt="">
+                    <div class="works-slider swiper">
+                        <div class="swiper-wrapper">
+                            <img class="1 swiper-slide" src="./img/slider-works.svg" alt="">
+                            <img class="2 swiper-slide" src="./img/slider-works.svg" alt="">
+                            <img class="3 swiper-slide" src="./img/slider-works.svg" alt="">
+                            <img class="4 swiper-slide" src="./img/slider-works.svg" alt="">
                         </div>
                     </div>
+                    <div class="swiper-pagination count-works"></div>
                 </div>
                 <div class="worksContent-info oneWorks">
                     <img src="./img/oneWorks.svg" alt="One works">
@@ -128,12 +130,6 @@
                         own Wallet - no more cash to 
                         carry
                     </p>
-                </div>
-                <div class="count-slider">
-                    <a class="active"></a>
-                    <a ></a>
-                    <a ></a>
-                    <a ></a>
                 </div>
                 <h2><span>TERE</span> BENEFITS</h2>
             </div>
@@ -198,5 +194,8 @@
             <p>All Rights Reserved tere by Codematics 2022</p>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./script/main.js"></script>
+    
 </body>
 </html>

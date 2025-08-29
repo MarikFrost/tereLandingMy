@@ -63,18 +63,43 @@ applyToDrive.addEventListener('input', () => {
 
 
 /***********************СЛАЙДЕР**************************** */
-/*Автоматичне перемикання слайдів*/
-const autoSlider = (ObjWithHtmlElSlider, animationTime, index) => {
-    let itemWidth = ObjWithHtmlElSlider.children[index].getBoundingClientRect().width
-    offset = -(itemWidth + gap) * (index)
-    ObjWithHtmlElSlider.style.transition = `transform ${animationTime}s ease-in-out`
-    ObjWithHtmlElSlider.style.transform = `translateX(${offset}px)`
-}
-/*Автоматичне перемикання слайдів*/
+new Swiper('.swiper', {
+    loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    simulateTouch: true,
+    grabCursor: true,
+    autoplay: {
+        delay: 3000,
+        stopOnLastSlide: false, 
+    },
+    speed: 1000,
+})
+
+/*
+
+const sliderBlock = document.querySelector('.works-slider > div')
+const countBlock = document.querySelector('.count-slider')
+let slide = 0
+let count = 0
+let offset = 0
+let box = true
+let gap = parseInt(window.getComputedStyle(sliderBlock).gap)
+    if(isNaN(gap)) {
+        gap = 0
+    }
+let lengthSlider = sliderBlock.children.length - 1
+let sliderPaused = false; 
+document.addEventListener('visibilitychange', () => { sliderPaused = document.hidden; });*/
+
+
+
 /* РУЧНЕ ЗАФАРБОВУВАННЯ КЛАСІВ */
-const handClass = (ObjWithHtmlElCount, interval) => {
+/*const handClass = (ObjWithHtmlElCount, interval) => {
     Array.from(ObjWithHtmlElCount.children).forEach((el, index) => {
-        el.addEventListener('click', event => {
+        el.addEventListener('click', () => {
             if(index > slide) {
                 box = false
                 count = index
@@ -101,10 +126,11 @@ const handClass = (ObjWithHtmlElCount, interval) => {
         })
     })
     
-}
+}*/
 /* РУЧНЕ ЗАФАРБОВУВАННЯ КЛАСІВ */
+
 /*АВТОМИТИЧНЕ ЗАФАРБОВУВАННЯ ПЕРЕМИКАЧІВ*/
-const autoClass = (ObjWithHtmlElCount, index) => {
+/*const autoClass = (ObjWithHtmlElCount, index) => {
     if(index >= ObjWithHtmlElCount.children.length) {
         count = 0
         index = count
@@ -113,10 +139,22 @@ const autoClass = (ObjWithHtmlElCount, index) => {
         el.classList.remove('active')
     })
     ObjWithHtmlElCount.children[index].classList.add('active')
-}
+}*/
 /*АВТОМИТИЧНЕ ЗАФАРБОВУВАННЯ ПЕРЕМИКАЧІВ*/
+
+/*Автоматичне перемикання слайдів*/
+/*const autoSlider = (ObjWithHtmlElSlider, animationTime, index) => {
+    let itemWidth = ObjWithHtmlElSlider.children[index].getBoundingClientRect().width
+    offset = -(itemWidth + gap) * (index)
+    ObjWithHtmlElSlider.style.transition = `transform ${animationTime}s ease-in-out`
+    ObjWithHtmlElSlider.style.transform = `translateX(${offset}px)`
+}*/
+/*Автоматичне перемикання слайдів*/
+
+
 /* АВТОМАТИЧНЕ ВИДАЛЕННЯ СЛАЙДІВ */
-const andSlider = (ObjWithHtmlElSlider) => {
+
+/*const andSlider = (ObjWithHtmlElSlider) => {
     const listener = () => {
         for(let i = 0; i <= lengthSlider; i++){
             ObjWithHtmlElSlider.children[0].remove()
@@ -128,29 +166,20 @@ const andSlider = (ObjWithHtmlElSlider) => {
         ObjWithHtmlElSlider.removeEventListener('transitionend', listener)
     }
     ObjWithHtmlElSlider.addEventListener('transitionend', listener)
-}
+}*/
 /* АВТОМАТИЧНЕ ВИДАЛЕННЯ СЛАЙДІВ */
-const handClone = (index, slide) => {
+/*const handClone = (index, slide) => {
     for(slide; slide <= index; slide++){
         const itemSlider = sliderBlock.children[slide].cloneNode(true)
         sliderBlock.append(itemSlider)
     }
-}
+}*/
 
 
-const sliderBlock = document.querySelector('.works-slider > div')
-const countBlock = document.querySelector('.count-slider')
-let slide = 0
-let count = 0
-let offset = 0
-let box = true
-let gap = parseInt(window.getComputedStyle(sliderBlock).gap)
-    if(isNaN(gap)) {
-        gap = 0
-    }
-let lengthSlider = sliderBlock.children.length - 1
 
+/*
 const autoAndHandSlide = (sliderBlock, countBlock, interval, animationTime) => {
+    if (sliderPaused || !box) return;
     interval = interval * 1000
     handClass(countBlock, interval)
     setInterval(() => {
@@ -167,6 +196,6 @@ const autoAndHandSlide = (sliderBlock, countBlock, interval, animationTime) => {
         }  
     }, interval) 
 }
-autoAndHandSlide(sliderBlock, countBlock, 4, 1)
+autoAndHandSlide(sliderBlock, countBlock, 5, 1)*/
 
 

@@ -397,7 +397,6 @@ main{
         grid-template-areas: 
                             "oneWorks slider twoWorks"
                             "threeWorks slider fourWorks"
-                            "countWorks countWorks countWorks"
                             "benefits benefits benefits";
 
         .works-slider-block{
@@ -411,20 +410,25 @@ main{
             justify-content: center;
             align-items: center;
             grid-area: slider;
+            position: relative;
 
             .works-slider{
                 width: 279px;
                 height: 560px;
-                overflow: hidden;
                 
-                > div {
-                    display: flex;
-                    gap: 2px;
-                    
+                
+                > .swiper-wrapper {
                     img {
                         width: 279px;
-                        height: 560px;
                     }
+                }
+            }
+            .count-works{
+                bottom: -30px;
+                > .swiper-pagination-bullet {
+                    width: 14px;
+                    height: 14px;
+                    background-color: $bc-green;
                 }
             }
         }
@@ -467,25 +471,6 @@ main{
             max-width: 290px;
             @include fonts($Gilroy-family, 500, 20px, $font-grey, 26px); 
         }
-        .count-slider{
-            width: 65px;
-            margin: -10px auto 0 auto;
-            display: flex;
-            gap: 5px;
-            grid-area: countWorks;
-
-            > a {
-                width: 14px;
-                height: 14px;
-                border-radius: 100%;
-                background-color: $bc-green;
-                opacity: 50%;
-            }
-
-            > a.active{
-                opacity: 100%;
-            }
-        }
         > h2 {
             grid-area: benefits;
             margin-top: 35px;
@@ -504,7 +489,7 @@ main{
 
     @media(max-width: 900px) {
         padding-top: 44px;
-        padding-bottom: 72px;
+        padding-bottom: 32px;
 
         h2 {
             font-size: 24px;
@@ -522,7 +507,6 @@ main{
             gap: 55px;
             grid-template-areas: 
                             "slider"
-                            "countWorks"
                             "benefits"
                             "oneWorks"
                             "twoWorks"
@@ -581,8 +565,12 @@ main{
                         }
                     }
                 }
+                .count-works {
+                    bottom: -10px;
+                }
             }       
         } 
+        
     }
 }
 /*********tereWorks**********/

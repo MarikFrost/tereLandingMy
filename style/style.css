@@ -501,7 +501,7 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr auto auto;
   gap: 40px;
-  grid-template-areas: "oneWorks slider twoWorks" "threeWorks slider fourWorks" "countWorks countWorks countWorks" "benefits benefits benefits";
+  grid-template-areas: "oneWorks slider twoWorks" "threeWorks slider fourWorks" "benefits benefits benefits";
 }
 .tereWorks .worksContent .works-slider-block {
   background-image: url(./../img/works-circle.svg);
@@ -514,19 +514,22 @@ main {
   justify-content: center;
   align-items: center;
   grid-area: slider;
+  position: relative;
 }
 .tereWorks .worksContent .works-slider-block .works-slider {
   width: 279px;
   height: 560px;
-  overflow: hidden;
 }
-.tereWorks .worksContent .works-slider-block .works-slider > div {
-  display: flex;
-  gap: 2px;
-}
-.tereWorks .worksContent .works-slider-block .works-slider > div img {
+.tereWorks .worksContent .works-slider-block .works-slider > .swiper-wrapper img {
   width: 279px;
-  height: 560px;
+}
+.tereWorks .worksContent .works-slider-block .count-works {
+  bottom: -30px;
+}
+.tereWorks .worksContent .works-slider-block .count-works > .swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  background-color: #75bf7a;
 }
 .tereWorks .worksContent .oneWorks {
   grid-area: oneWorks;
@@ -569,23 +572,6 @@ main {
   color: #9e9da2;
   line-height: 26px;
 }
-.tereWorks .worksContent .count-slider {
-  width: 65px;
-  margin: -10px auto 0 auto;
-  display: flex;
-  gap: 5px;
-  grid-area: countWorks;
-}
-.tereWorks .worksContent .count-slider > a {
-  width: 14px;
-  height: 14px;
-  border-radius: 100%;
-  background-color: #75bf7a;
-  opacity: 50%;
-}
-.tereWorks .worksContent .count-slider > a.active {
-  opacity: 100%;
-}
 .tereWorks .worksContent > h2 {
   grid-area: benefits;
   margin-top: 35px;
@@ -602,7 +588,7 @@ main {
 @media (max-width: 900px) {
   .tereWorks {
     padding-top: 44px;
-    padding-bottom: 72px;
+    padding-bottom: 32px;
   }
   .tereWorks h2 {
     font-size: 24px;
@@ -620,7 +606,7 @@ main {
     grid-template-rows: repeat(7, auto);
     justify-items: center;
     gap: 55px;
-    grid-template-areas: "slider" "countWorks" "benefits" "oneWorks" "twoWorks" "threeWorks" "fourWorks";
+    grid-template-areas: "slider" "benefits" "oneWorks" "twoWorks" "threeWorks" "fourWorks";
   }
   .tereWorks .worksContent .works-slider-block {
     width: 320px;
@@ -661,6 +647,9 @@ main {
   .tereWorks .worksContent .works-slider-block .works-slider > div > img {
     width: 203px;
     height: 408px;
+  }
+  .tereWorks .worksContent .works-slider-block .count-works {
+    bottom: -10px;
   }
 }
 
