@@ -627,6 +627,7 @@ main {
   }
   .tereWorks .worksContent .worksContent-info p {
     max-width: 80%;
+    text-align: center;
   }
   .tereWorks .worksContent > h2 {
     margin-top: 15px;

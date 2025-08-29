@@ -75,8 +75,15 @@ new Swiper('.swiper', {
         delay: 3000,
         stopOnLastSlide: false, 
     },
-    speed: 500,
+    speed: 1000,
 })
+swiper.on('touchStart', () => {
+    swiper.params.speed = 200; // швидка анімація для свайпу
+});
+
+swiper.on('touchEnd', () => {
+    swiper.params.speed = 1000; // повертаємо назад для autoplay
+});
 
 /*
 
