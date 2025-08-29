@@ -63,7 +63,7 @@ applyToDrive.addEventListener('input', () => {
 
 
 /***********************СЛАЙДЕР**************************** */
-new Swiper('.swiper', {
+const newSwiper = new Swiper('.swiper', {
     loop: true,
     pagination: {
         el: '.swiper-pagination',
@@ -76,14 +76,14 @@ new Swiper('.swiper', {
         stopOnLastSlide: false, 
     },
     speed: 1000,
+});
+newSwiper.on('sliderMove', () => {
+    newSwiper.params.speed = 200; // швидка анімація для свайпу
 })
-swiper.on('touchStart', () => {
-    swiper.params.speed = 200; // швидка анімація для свайпу
-});
 
-swiper.on('touchEnd', () => {
-    swiper.params.speed = 1000; // повертаємо назад для autoplay
-});
+newSwiper.on('transitionEnd', () => {
+    newSwiper.params.speed = 1000; // повертаємо назад для autoplay
+})
 
 /*
 
